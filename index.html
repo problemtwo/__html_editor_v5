@@ -16,8 +16,8 @@
 					if(e.keyCode === 9)
 					{
 						const start = this.selectionStart, end = this.selectionEnd,
-									value = this.value;
-						this.value = value.substr(0,this.selectionStart) + ' ' + value.substr(this.selectionEnd);
+									value = e.target.value;
+						e.target.value = value.substr(0,this.selectionStart) + ' ' + value.substr(this.selectionEnd);
 						this.selectionEnd = start + 1;
 						e.preventDefault();
 					}
