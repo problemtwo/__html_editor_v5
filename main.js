@@ -17,12 +17,11 @@ window.onload = function()
   {
    try
    {
-    put('we got here');
     eval(id('input').value);
    }
    catch(ex)
    {
-    if(ex.lineNumber)
+    if(typeof ex.lineNumber !== 'undefined')
     {
      put('Line ' + ex.lineNumber + ': ' + ex.name + ': ' + ex.message);
     }
