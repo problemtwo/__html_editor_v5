@@ -17,6 +17,7 @@ window.onload = function()
   {
    try
    {
+    put('we got here');
     eval(id('input').value);
    }
    catch(ex)
