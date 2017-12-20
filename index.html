@@ -1,39 +1,15 @@
 <!doctype html>
 <html>
-	<head>
-		<style type='text/css'>
-			html,body{width:100%;height:100%;}
-			#input,#output{float:left;width:50%;height:100%;}
-			#input{background:#000;color:#fff;}
-		</style>
-		<script type='text/javascript'>
-			window.onload = function()
-			{
-				function id(i){return document.getElementById(i);}
-				let ctrl = false;
-				id('input').onkeydown = e =>
-				{
-					if(e.keyCode === 9)
-					{
-						const start = this.selectionStart, end = this.selectionEnd,
-									value = e.target.value;
-						e.target.value = value.substr(0,this.selectionStart) + ' ' + value.substr(this.selectionEnd);
-						this.selectionEnd = start + 1;
-						e.preventDefault();
-					}
-					else if(e.keyCode === 13 && ctrl)
-					{
-						eval(id('input').value);
-						e.preventDefault();
-					}
-					else if(e.keyCode === 17){ctrl = true;}
-				};
-				id('input').onkeyup = e => {if(e.keyCode === 17){ctrl = false;}};
-			};
-		</script>
-	</head>
-	<body>
-		<textarea placeholder='Enter JS here.' spellcheck='false' id='input'></textarea>
-		<iframe id='output'></iframe>
-	</body>
+ <head>
+  <link rel="stylesheet" href="style.css" type="text/css" />
+  <script type="text/javascript" src="main.js"></script>
+ </head>
+ <body>
+  <div id='input'>
+   <div></div>
+   <textarea placeholder='...' spellcheck='false'></textarea>
+  </div>
+  <div id='console'></div>
+  <div id='output'></div>
+ </body>
 </html>
