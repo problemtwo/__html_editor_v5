@@ -1,8 +1,8 @@
+function put(t){id('console').innerHTML += t + '<br />';}
+function clear(){id('console').innerHTML = '';}
 window.onload = function()
 {
  function id(i){return document.getElementById(i);}
- function put(t){id('console').innerHTML += t + '<br />';}
- function clear(){id('console').innerHTML = '';}
  let ctrl = false;
  id('input').onkeydown = e =>
  {
