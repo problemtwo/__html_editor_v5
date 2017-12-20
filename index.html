@@ -17,7 +17,7 @@
 					{
 						const start = this.selectionStart, end = this.selectionEnd,
 									value = this.value;
-						this.value = value.substring(0,start) + ' ' + value.substring(end);
+						this.value = value.substr(0,this.selectionStart) + ' ' + value.substr(this.selectionEnd);
 						this.selectionEnd = start + 1;
 						e.preventDefault();
 					}
