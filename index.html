@@ -16,9 +16,9 @@
 					if(e.keyCode === 9)
 					{
 						const start = this.selectionStart, end = this.selectionEnd,
-									value = e.target.value;
-						e.target.value = value.substring(0,start) + ' ' + value.substring(end);
-						this.selectionStart = this.selectionEnd = start + 1;
+									value = this.value;
+						this.value = value.substring(0,start) + ' ' + value.substring(end);
+						this.selectionEnd = start + 1;
 						e.preventDefault();
 					}
 					else if(e.keyCode === 13 && ctrl)
