@@ -6,6 +6,31 @@
 			#input,#output{float:left;width:50%;height:100%;}
 			#input{background:#000;color:#fff;}
 		</style>
+		<script type='text/javascript'>
+			window.onload = function()
+			{
+				function id(i){return document.getElementById(i);}
+				let ctrl = false;
+				id('input').onkeydown = e =>
+				{
+					if(e.keyCode === 9)
+					{
+						const start = this.selectionStart, end = this.selectionEnd,
+									value = e.target.value;
+						e.target.value = value.substring(0,start) + ' ' + value.substring(end);
+						this.selectionStart = this.selectionEnd = start + 1;
+						e.preventDefault();
+					}
+					else if(e.keyCode === 13 && ctrl)
+					{
+						eval(id('input').value);
+						e.preventDefault();
+					}
+					else if(e.keyCode === 17){ctrl = true;}
+				};
+				id('input').onkeyup = e => if(e.keyCode === 17){ctrl = false;};
+			};
+		</script>
 	</head>
 	<body>
 		<textarea placeholder='Enter JS here.' spellcheck='false' id='input'></textarea>
